@@ -12,11 +12,16 @@
 
 <script>
   async function buscarDados() {
-    // Busca a informação no servidor que criamos
-    const resposta = await fetch('http://localhost:3000/mensagem');
-    const dados = await json();
-    // Exibe a mensagem na tela
-    document.getElementById('resposta').innerText = dados.texto;
+    try {
+      const resposta = await fetch('https://scaling-space-guide-jxw9q5pvjrw3pj4x-3000.app.github.dev/mensagem');
+      
+      const dados = await resposta.json();
+
+      document.getElementById('resposta').innerText = dados.texto;
+    } catch (erro) {
+      console.error(erro);
+      document.getElementById('resposta').innerText = 'Erro ao buscar dados';
+    }
   }
 </script>
 </body>
