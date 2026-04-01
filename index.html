@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Minha Conexão Back-End</h1>
+<button onclick="buscarDados()">Clique para chamar o Servidor</button>
+<p id="resposta">Aguardando comando...</p>
+
+<script>
+  async function buscarDados() {
+    // Busca a informação no servidor que criamos
+    const resposta = await fetch('http://localhost:3000/mensagem');
+    const dados = await json();
+    // Exibe a mensagem na tela
+    document.getElementById('resposta').innerText = dados.texto;
+  }
+</script>
+</body>
+</html>
